@@ -22,7 +22,7 @@ public class Bereshit_103 {
     private static final double VS_KD = 1.0;
     private static final double VS_MAX_I = 5;
         
-    // More aggressive horizontal PID constants
+    // Horizontal PID constants
     private static final double HS_KP = 10.0;  // Increased from 8.0
     private static final double HS_KI = 0.05;   // Increased from 0.02
     private static final double HS_KD = 4.0;    // Increased from 3.0
@@ -66,7 +66,7 @@ public class Bereshit_103 {
             System.out.println("time, vs, hs, dist, alt, ang, weight, acc, NN, fuel");
 
             while (alt > 0) {
-                if (true) { //time % 10 == 0 || alt < 100
+                if (true) {
                     // Print values for console logging
                     System.out.printf("%.1f, %.2f, %.2f, %.1f, %.1f, %.1f, %.1f, %.2f, %.2f, %.1f%n",
                         time, vs, hs, dist, alt, ang, weight, acc, NN,fuel);
@@ -103,7 +103,7 @@ public class Bereshit_103 {
                 vs_Error = vs - vs_target;
                 vsControl = pid_vs.update(vs_Error, dt);
                 
-                // New aggressive horizontal control
+                // Horizontal control
                 hs_Error = hs - hs_target;
                 hsControl = pid_hs.update(hs_Error, dt);  // Strong boost to horizontal control
                 
